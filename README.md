@@ -1,7 +1,7 @@
+# Web Dev Quiz App
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 [![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
 
-# Web Dev Quiz App
 An interactive web development quiz application powered by Google's Gemini AI. Test your knowledge across multiple programming languages and web technologies with dynamically generated questions.
 
 <img width="1887" height="898" alt="image" src="https://github.com/user-attachments/assets/d0995414-713f-4aa3-b2d9-97d9c4a4f3fa" />
