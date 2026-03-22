@@ -1,3 +1,13 @@
+# React components
 *.js linguist-language=JavaScript
 *.jsx linguist-language=JavaScript
-public/**/*.js linguist-vendored
+
+# Ignore build files and dependencies from language stats
+package-lock.json linguist-generated
+yarn.lock linguist-generated
+build/ linguist-vendored
+public/static/ linguist-vendored
+node_modules/ linguist-vendored
+
+# Mark configuration files as vendored
+*.config.js linguist-vendored
