@@ -1,0 +1,3 @@
+echo "*.js linguist-language=JavaScript" >> .gitattributes
+echo "*.jsx linguist-language=JavaScript" >> .gitattributes
+echo "public/**/*.js linguist-vendored" >> .gitattributes
