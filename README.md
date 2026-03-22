@@ -31,13 +31,13 @@ An interactive web development quiz application powered by Google's Gemini AI. T
 
 1. **Clone the repository**
    ```bash
-git clone https://github.com/YOUR_USERNAME/web-dev-quiz.git
-cd web-dev-quiz
+   git clone https://github.com/YOUR_USERNAME/web-dev-quiz.git
+   cd web-dev-quiz
    ```
-
+   
 2. **Install dependencies**
    ```bash
-npm install
+   npm install
    ```
 
 3. **Get a Google Gemini API key**
@@ -48,15 +48,15 @@ npm install
 
 4. **Create a `.env` file**
    - In the project root add:
-     ```
-REACT_APP_GOOGLE_API_KEY=your_api_key_here
+     ```bash
+      REACT_APP_GOOGLE_API_KEY=your_api_key_here
      ```
    - The `.env` file is ignored by Git (see `.gitignore`), so your key stays private.
    - Restart the dev server if it’s already running so the new variable is picked up.
 
 5. **Start the development server**
    ```bash
-npm start
+   npm start
    ```
 
 6. **Open http://localhost:3000 in your browser** to begin using the app.
