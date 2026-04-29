@@ -1,10 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width="100" />
-  <h1>⚛️ REACT Web Dev Quiz App ⚛️</h1>
-  <h3>Built with React 19 + Google Gemini AI</h3>
+<h1>Web Dev Quiz App</h1>
 </div>
-
-# Web Dev Quiz App
 
 An interactive web development quiz application powered by Google's Gemini AI. Test your knowledge across multiple programming languages and web technologies with dynamically generated questions.
 
@@ -13,26 +9,26 @@ An interactive web development quiz application powered by Google's Gemini AI. T
 ## 🚀 Features
 
 - **AI-Generated Questions**: Each quiz is uniquely generated using Google's Gemini AI (falls back to built-in topic‑aware samples if generation fails)
-- **Multiple Topics**: HTML, CSS, JavaScript, React, Python, Java, and more
-- **Difficulty Levels**: Easy, Medium, and Hard questions
-- **Timed Challenges**: 60-second timer per question
-- **Study Resources**: Curated learning materials for each topic
-- **Performance Tracking**: Detailed quiz results and explanations
-- **PDF Export**: Download a styled PDF of your quiz report from the results screen
+- **Multiple Topics**: HTML, CSS, JavaScript, React, Python, Java, and more.
+- **Difficulty Levels**: Easy, Medium, and Hard questions.
+- **Timed Challenges**: 60-second timer per question.
+- **Study Resources**: Curated learning materials for each topic.
+- **Performance Tracking**: Detailed quiz results and explanations.
+- **PDF Export**: Download a styled PDF of your quiz report from the results screen.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 19, React Router DOM 7
-- **Styling**: Custom CSS
-- **AI Integration**: Google Generative AI (Gemini)
-- **Icons**: Lucide React
-- **Build Tool**: Create React App
+- **Frontend**: React 19, React Router DOM 7.
+- **Styling**: Custom CSS.
+- **AI Integration**: Google Generative AI (Gemini).
+- **Icons**: Lucide React.
+- **Build Tool**: Create React App.
 
 ## 📋 Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Google Gemini API key (free)
+- Node.js (v18 or higher).
+- npm or yarn.
+- Google Gemini API key (free).
 
 ## 🔧 Installation
 
@@ -107,11 +103,11 @@ web-dev-quiz/
 - **About.js** – project information, acknowledgments and links.
 
 ## 🎯 Usage
-- **Start a Quiz**: Click "Start Quiz" on the home page
-- **Select Topic**: Choose from HTML, CSS, JavaScript, React, Python, or Java
-- **Choose Difficulty**: Pick Easy, Medium, or Hard
-- **Answer Questions**: You have 60 seconds per question
-- **View Results**: See your score and correct answers with explanations
+- **Start a Quiz**: Click "Start Quiz" on the home page.
+- **Select Topic**: Choose from HTML, CSS, JavaScript, React, Python, or Java.
+- **Choose Difficulty**: Pick Easy, Medium, or Hard.
+- **Answer Questions**: You have 60 seconds per question.
+- **View Results**: See your score and correct answers with explanations.
 - **Download PDF**: On the results screen hit "Download PDF" to print or save a styled report (this uses the browser print dialog with a special print stylesheet).
 
 ## 🧪 Testing AI Models
@@ -134,30 +130,29 @@ npm run build
 - Import project to Netlify
 - Build command: npm run build
 - Publish directory: build
-- Add environment variable
 
 ## 🤝 Contributing
 - Contributions are welcome! Please feel free to submit a Pull Request.
-- Fork the repository
-- Create your feature branch (git checkout -b feature/AmazingFeature)
-- Commit your changes (git commit -m 'Add some AmazingFeature')
-- Push to the branch (git push origin feature/AmazingFeature)
-- Open a Pull Request
+- Fork the repository.
+- Create your feature branch (git checkout -b feature/AmazingFeature).
+- Commit your changes (git commit -m 'Add some AmazingFeature').
+- Push to the branch (git push origin feature/AmazingFeature).
+- Open a Pull Request.
 
 ## 📝 License
 - This project is licensed under the ISC License.
 
 ## 🙏 Acknowledgments
-- Google Gemini AI for providing the AI capabilities
-- Lucide for the beautiful icons
-- Create React App for the build setup
+- Google Gemini AI for providing the AI capabilities.
+- Lucide for the beautiful icons.
+- Create React App for the build setup.
 
 ## ⚠️ Troubleshooting
 **Q: AI questions aren't generating**
-- A: Verify that `REACT_APP_GOOGLE_API_KEY` is set in your `.env`, that it’s valid, and that the Generative Language API is enabled for that key
+- A: Verify that `REACT_APP_GOOGLE_API_KEY` is set in your `.env`, that it’s valid, and that the Generative Language API is enabled for that key.
 
 **Q: 404 or 503 errors with Gemini models**
 - A: The app automatically retries several current models (`gemini-2.5-flash`, `gemini-2.5-pro`, `gemini-2.0-flash`, etc.). Run `node check-models.js YOUR_API_KEY` to list models your key can access. Temporary service outages are normal – either wait and try again or use the built-in fallback questions.
 
 **Q: App won't start**
-- A: Run npm install to ensure all dependencies are installed
+- A: Run npm install to ensure all dependencies are installed.
