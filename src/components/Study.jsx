@@ -11,13 +11,20 @@ const Study = () => {
   };
 
   const handleTopicSelect = (topic) => {
-    navigate(`/study/${topic.toLowerCase()}`);
+    // Convert topic to lowercase for routing, but handle special cases
+    let routeTopic = topic.toLowerCase();
+    if (topic === "Vue.js") routeTopic = "vue.js";
+    if (topic === "Node.js") routeTopic = "node.js";
+    navigate(`/study/${routeTopic}`);
   };
 
   return (
     <div className="study-container">
-      <h1>Study Resources</h1>
-      <p className="study-intro">Select a topic to explore study materials and resources.</p>
+      <h1>📚 Study Resources</h1>
+      <p className="study-intro">
+        Select a topic to access tutorials, documentation, and examples from 
+        W3Schools, MDN, and official docs.
+      </p>
       
       {Object.entries(categories).map(([category, categoryTopics]) => (
         <div key={category} style={{ marginBottom: "2rem" }}>
@@ -43,6 +50,18 @@ const Study = () => {
           </div>
         </div>
       ))}
+      
+      <div style={{ 
+        marginTop: "3rem", 
+        padding: "1rem", 
+        background: "#252525", 
+        borderRadius: "8px",
+        textAlign: "center"
+      }}>
+        <p style={{ color: "#888", fontSize: "0.9rem" }}>
+          💡 All resources are from trusted sources: W3Schools, MDN, and official documentation
+        </p>
+      </div>
     </div>
   );
 };
