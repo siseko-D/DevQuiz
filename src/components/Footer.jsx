@@ -4,7 +4,7 @@ import React from "react";
 const Footer = React.memo(() => (
   <footer className="footer">
     <div className="footer-container">
-      <p>© 2026 Web Dev Quiz. All rights reserved.</p>
+      <p>© 2026 DevQuiz. All rights reserved.</p>
     </div>
   </footer>
 ));

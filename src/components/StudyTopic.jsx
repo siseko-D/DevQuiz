@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const TOPIC_LINKS = {
+  // Frontend
   html: {
     tutorial: "https://www.w3schools.com/html/",
     documentation: "https://developer.mozilla.org/docs/Web/HTML",
@@ -22,6 +23,22 @@ const TOPIC_LINKS = {
     documentation: "https://react.dev/learn",
     examples: "https://www.w3schools.com/react/react_examples.asp"
   },
+  typescript: {
+    tutorial: "https://www.w3schools.com/typescript/",
+    documentation: "https://www.typescriptlang.org/docs/",
+    examples: "https://www.typescriptlang.org/play/"
+  },
+  vuejs: {
+    tutorial: "https://vuejs.org/guide/introduction.html",
+    documentation: "https://vuejs.org/api/",
+    examples: "https://vuejs.org/examples/"
+  },
+  // Backend
+  nodejs: {
+    tutorial: "https://www.w3schools.com/nodejs/",
+    documentation: "https://nodejs.org/en/docs/",
+    examples: "https://nodejs.org/en/docs/guides/"
+  },
   python: {
     tutorial: "https://www.w3schools.com/python/",
     documentation: "https://docs.python.org/3/",
@@ -31,6 +48,47 @@ const TOPIC_LINKS = {
     tutorial: "https://www.w3schools.com/java/",
     documentation: "https://docs.oracle.com/javase/8/docs/",
     examples: "https://www.w3schools.com/java/java_examples.asp"
+  },
+  php: {
+    tutorial: "https://www.w3schools.com/php/",
+    documentation: "https://www.php.net/docs.php",
+    examples: "https://www.w3schools.com/php/php_examples.asp"
+  },
+  ruby: {
+    tutorial: "https://www.w3schools.com/ruby/",
+    documentation: "https://ruby-doc.org/",
+    examples: "https://www.ruby-lang.org/en/documentation/quickstart/"
+  },
+  go: {
+    tutorial: "https://go.dev/doc/tutorial/",
+    documentation: "https://go.dev/doc/",
+    examples: "https://go.dev/play/"
+  },
+  // Databases
+  sql: {
+    tutorial: "https://www.w3schools.com/sql/",
+    documentation: "https://learn.microsoft.com/en-us/sql/sql-server/",
+    examples: "https://www.w3schools.com/sql/sql_examples.asp"
+  },
+  mongodb: {
+    tutorial: "https://www.mongodb.com/docs/manual/tutorial/",
+    documentation: "https://www.mongodb.com/docs/",
+    examples: "https://www.mongodb.com/developer/products/mongodb/cheat-sheet/"
+  },
+  postgresql: {
+    tutorial: "https://www.postgresql.org/docs/tutorial.html",
+    documentation: "https://www.postgresql.org/docs/",
+    examples: "https://www.postgresqltutorial.com/"
+  },
+  mysql: {
+    tutorial: "https://www.w3schools.com/mysql/",
+    documentation: "https://dev.mysql.com/doc/",
+    examples: "https://www.mysqltutorial.org/"
+  },
+  firebase: {
+    tutorial: "https://firebase.google.com/docs",
+    documentation: "https://firebase.google.com/docs/reference",
+    examples: "https://firebase.google.com/docs/samples"
   }
 };
 
@@ -43,7 +101,11 @@ const StudyTopic = () => {
   useEffect(() => {
     const lower = topic.toLowerCase();
     const formatted = topic.charAt(0).toUpperCase() + topic.slice(1);
-    const links = TOPIC_LINKS[lower] || {};
+    const links = TOPIC_LINKS[lower] || {
+      tutorial: "#",
+      documentation: "#",
+      examples: "#"
+    };
     setTimeout(() => {
       setResources([
         { type: "Tutorial", title: `${formatted} Tutorial`, url: links.tutorial || "#" },

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// memoize to avoid unnecessary re-renders when parent state changes
 const Navbar = React.memo(() => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("/");
@@ -14,8 +13,8 @@ const Navbar = React.memo(() => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo" onClick={() => navigate("/")}> 
-          <span className="icon">&lt;&gt;</span>
-          <span>Web Dev Quiz</span>
+          <span className="icon">{`</>`}</span>
+          <span>DevQuiz</span>
         </div>
         <div className="nav-links">
           <a
@@ -39,6 +38,17 @@ const Navbar = React.memo(() => {
             }}
           >
             <span>Study</span>
+          </a>
+          <a
+            href="/leaderboard"
+            className={activeLink === "/leaderboard" ? "active" : ""}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/leaderboard");
+              setActiveLink("/leaderboard");
+            }}
+          >
+            <span>Leaderboard</span>
           </a>
           <a
             href="/about"

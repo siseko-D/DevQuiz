@@ -1,6 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// ============ IMPORT ALL CSS FILES ============
+import "./styles/index.css";
 import "./styles/App.css";
+import "./styles/navbar.css";
+import "./styles/footer.css";
+import "./styles/quiz.css";
+import "./styles/study.css";
+import "./styles/about.css";
+import "./styles/modal.css";
+import "./styles/leaderboard.css";
 
 // component imports
 import Navbar from "./components/Navbar";
@@ -8,8 +18,8 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Study from "./components/Study";
 import StudyTopic from "./components/StudyTopic";
-import QuizApp from "./components/QuizApp";
-
+import QuizApp from "./components/QuizApp/QuizApp";
+import Leaderboard from "./components/Leaderboard";
 
 function App() {
   return (
@@ -22,6 +32,7 @@ function App() {
             <Route path="/study" element={<Study />} />
             <Route path="/study/:topic" element={<StudyTopic />} />
             <Route path="/about" element={<About />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
           </Routes>
         </div>
         <Footer />
@@ -31,5 +42,3 @@ function App() {
 }
 
 export default App;
-
-

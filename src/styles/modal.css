@@ -1,0 +1,136 @@
+/* ============ MODAL STYLES ============ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+    background-color: #252525;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    border: 1px solid #4caf50;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4caf50;
+}
+
+.modal-header h3 {
+    color: #4caf50;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #f44336;
+}
+
+.modal-body {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.modal-body h4 {
+    color: #ffc107;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.modal-question {
+    background-color: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-left: 3px solid #4caf50;
+}
+
+.modal-answers {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.modal-correct {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.modal-wrong {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.modal-explanation {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border-left: 3px solid #2196f3;
+}
+
+.modal-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.modal-footer button {
+    background-color: #4caf50;
+    color: #111;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.modal-footer button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}

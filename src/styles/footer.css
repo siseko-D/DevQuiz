@@ -1,0 +1,16 @@
+/* ============ FOOTER STYLES ============ */
+
+.footer {
+    background-color: #222;
+    border-top: 1px solid #333;
+    margin-top: auto;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.footer-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+}
