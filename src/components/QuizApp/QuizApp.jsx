@@ -87,6 +87,7 @@ const QuizApp = () => {
         selectedDifficulty,
         score,
         questions,
+        timerDuration,
       };
       const result = await saveQuizResult(tempUsername.trim(), quizData);
       if (result.success) {

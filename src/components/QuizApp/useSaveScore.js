@@ -74,6 +74,7 @@ export const useSaveScore = () => {
           score: score,
           total_questions: questions.length,
           percentage: parseFloat(percentage),
+          timer_seconds: quizData.timerDuration || 60, // Add this line
         });
 
       if (insertError) {

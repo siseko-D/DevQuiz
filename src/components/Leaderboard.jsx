@@ -6,7 +6,13 @@ const Leaderboard = () => {
   const [selectedTopic, setSelectedTopic] = useState('All')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const topics = ['All', 'HTML', 'CSS', 'JavaScript', 'React', 'Python', 'Java']
+  
+  // All topics from your quiz - dynamic and comprehensive
+  const allTopics = [
+    'All', 'HTML', 'CSS', 'JavaScript', 'React', 'TypeScript', 'Vue.js',
+    'Node.js', 'Python', 'Java', 'PHP', 'Ruby', 'Go',
+    'SQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'
+  ]
 
   const fetchLeaderboard = useCallback(async () => {
     setLoading(true)
@@ -34,7 +40,6 @@ const Leaderboard = () => {
       }
       
       // Keep ONLY the highest score per username per topic
-      // If tie, keep the most recent
       const bestScoresMap = new Map()
       
       data.forEach(item => {
@@ -55,7 +60,7 @@ const Leaderboard = () => {
           if (b.score !== a.score) return b.score - a.score
           return new Date(b.created_at) - new Date(a.created_at)
         })
-        .slice(0, 20)
+        .slice(0, 50)
       
       setLeaderboard(combinedData)
       
@@ -93,6 +98,15 @@ const Leaderboard = () => {
     }
   }
 
+  // Format timer display (if stored, otherwise show default)
+  const formatTimer = (timerSeconds) => {
+    if (!timerSeconds) return '60s';
+    if (timerSeconds === 30) return '⚡ 30s';
+    if (timerSeconds === 60) return '⏱️ 60s';
+    if (timerSeconds === 90) return '🐢 90s';
+    return `${timerSeconds}s`;
+  }
+
   return (
     <div className="leaderboard-container">
       <div className="leaderboard-header">
@@ -103,16 +117,38 @@ const Leaderboard = () => {
         <p className="leaderboard-subtitle">Top performers across all quizzes (highest scores only)</p>
       </div>
 
-      <div className="topic-filters">
-        {topics.map(topic => (
-          <button
-            key={topic}
-            className={`topic-filter-btn ${selectedTopic === topic ? 'active' : ''}`}
-            onClick={() => setSelectedTopic(topic)}
-          >
-            {topic === 'All' ? '🌟 All Topics' : topic}
-          </button>
-        ))}
+      {/* Topic Filter - Dropdown for better UX */}
+      <div style={{ marginBottom: "2rem" }}>
+        <label style={{ 
+          display: "block", 
+          marginBottom: "0.5rem", 
+          color: "#ccc",
+          fontSize: "0.9rem",
+          fontWeight: "500"
+        }}>
+          Filter by Topic:
+        </label>
+        <select
+          value={selectedTopic}
+          onChange={(e) => setSelectedTopic(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "12px 16px",
+            backgroundColor: "#333",
+            border: "1px solid #4caf50",
+            borderRadius: "8px",
+            color: "white",
+            fontSize: "1rem",
+            cursor: "pointer",
+            outline: "none"
+          }}
+        >
+          {allTopics.map(topic => (
+            <option key={topic} value={topic}>
+              {topic === 'All' ? '🌟 All Topics' : topic}
+            </option>
+          ))}
+        </select>
       </div>
       
       {loading ? (
@@ -148,7 +184,15 @@ const Leaderboard = () => {
                 </div>
                 <div className="user-info">
                   <span className="user-name">{entry.username || 'Anonymous'}</span>
-                  <span className="user-topic">{entry.topic}</span>
+                  <div style={{ display: "flex", gap: "8px", marginTop: "4px", flexWrap: "wrap" }}>
+                    <span className="user-topic">📚 {entry.topic}</span>
+                    <span className="user-topic" style={{ background: "rgba(255, 193, 7, 0.15)", color: "#ffc107" }}>
+                      🎯 {entry.difficulty || 'Medium'}
+                    </span>
+                    <span className="user-topic" style={{ background: "rgba(33, 150, 243, 0.15)", color: "#2196f3" }}>
+                      ⏱️ {formatTimer(entry.timer_seconds)}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="leaderboard-score">
@@ -157,6 +201,20 @@ const Leaderboard = () => {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      
+      {/* Stats Footer */}
+      {leaderboard.length > 0 && (
+        <div style={{ 
+          marginTop: "2rem", 
+          paddingTop: "1rem", 
+          borderTop: "1px solid #333",
+          textAlign: "center",
+          color: "#666",
+          fontSize: "0.8rem"
+        }}>
+          Showing top {leaderboard.length} scores • Only your highest score per topic counts
         </div>
       )}
     </div>
