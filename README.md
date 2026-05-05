@@ -1,10 +1,12 @@
 <div align="center">
 <h1>DevQuiz</h1>
 <h3>AI-Powered Web Development Quiz App</h3>
-
+   
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://reactjs.org/)
-[![Groq](https://img.shields.io/badge/Groq-AI-ff69b4.svg)](https://groq.com/)
-[![Supabase](https://img.shields.io/badge/Supabase-Database-3ecf8e.svg)](https://supabase.io/)
+[![Groq](https://img.shields.io/badge/Groq-AI-ff69b4)](https://groq.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ecf8e)](https://supabase.io/)
+[![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 </div>
 
