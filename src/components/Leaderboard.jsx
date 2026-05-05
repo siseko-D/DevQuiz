@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { supabase } from '../supabaseClient'
 
 const Leaderboard = () => {
@@ -8,11 +8,7 @@ const Leaderboard = () => {
   const [error, setError] = useState(null)
   const topics = ['All', 'HTML', 'CSS', 'JavaScript', 'React', 'Python', 'Java']
 
-  useEffect(() => {
-    fetchLeaderboard()
-  }, [selectedTopic])
-
-  const fetchLeaderboard = async () => {
+  const fetchLeaderboard = useCallback(async () => {
     setLoading(true)
     setError(null)
     
@@ -69,7 +65,11 @@ const Leaderboard = () => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [selectedTopic])
+
+  useEffect(() => {
+    fetchLeaderboard()
+  }, [fetchLeaderboard])
 
   const getMedal = (rank) => {
     switch(rank) {
