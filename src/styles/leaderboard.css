@@ -29,12 +29,10 @@
 }
 
 @keyframes bounce {
-
     0%,
     100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-5px);
     }
@@ -56,38 +54,6 @@
     margin: 0;
 }
 
-/* Topic Filters - Pill Design */
-.topic-filters {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.topic-filter-btn {
-    background: #333;
-    border: none;
-    border-radius: 40px;
-    padding: 8px 20px;
-    color: #ccc;
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.topic-filter-btn:hover {
-    background: #444;
-    transform: translateY(-2px);
-}
-
-.topic-filter-btn.active {
-    background: linear-gradient(135deg, #4caf50, #45a049);
-    color: white;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-}
-
 /* Loading State */
 .leaderboard-loading {
     text-align: center;
@@ -102,6 +68,15 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 /* Error State */

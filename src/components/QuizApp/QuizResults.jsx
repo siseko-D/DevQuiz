@@ -87,7 +87,7 @@ const QuizResults = ({
       {saveStatus && (
         <div
           className={
-            saveStatus.includes("🎉") ? "saved-notice" : "login-notice"
+            saveStatus.includes("🎉") ? "saved-notice" : "notice"
           }
         >
           {saveStatus}

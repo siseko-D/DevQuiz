@@ -19,6 +19,8 @@ const Leaderboard = () => {
     setError(null)
     
     try {
+      console.log("Fetching leaderboard for topic:", selectedTopic);
+      
       let query = supabase
         .from('quiz_history')
         .select('*')
@@ -31,9 +33,15 @@ const Leaderboard = () => {
 
       const { data, error: queryError } = await query
       
-      if (queryError) throw queryError
+      if (queryError) {
+        console.error("Query error:", queryError);
+        throw queryError
+      }
+      
+      console.log("Raw data from Supabase:", data);
       
       if (!data || data.length === 0) {
+        console.log("No data found");
         setLeaderboard([])
         setLoading(false)
         return
@@ -62,10 +70,11 @@ const Leaderboard = () => {
         })
         .slice(0, 50)
       
+      console.log("Processed leaderboard data:", combinedData);
       setLeaderboard(combinedData)
       
     } catch (err) {
-      console.error("Error:", err)
+      console.error("Error in fetchLeaderboard:", err)
       setError(err.message)
     } finally {
       setLoading(false)
@@ -98,7 +107,7 @@ const Leaderboard = () => {
     }
   }
 
-  // Format timer display (if stored, otherwise show default)
+  // Format timer display (safe check for missing timer_seconds)
   const formatTimer = (timerSeconds) => {
     if (!timerSeconds) return '60s';
     if (timerSeconds === 30) return '⚡ 30s';
@@ -117,7 +126,7 @@ const Leaderboard = () => {
         <p className="leaderboard-subtitle">Top performers across all quizzes (highest scores only)</p>
       </div>
 
-      {/* Topic Filter - Dropdown for better UX */}
+      {/* Topic Filter */}
       <div style={{ marginBottom: "2rem" }}>
         <label style={{ 
           display: "block", 
@@ -160,6 +169,20 @@ const Leaderboard = () => {
         <div className="leaderboard-error">
           <span>⚠️</span>
           <p>{error}</p>
+          <button 
+            onClick={() => fetchLeaderboard()}
+            style={{
+              marginTop: "1rem",
+              padding: "8px 16px",
+              background: "#4caf50",
+              border: "none",
+              borderRadius: "8px",
+              color: "#111",
+              cursor: "pointer"
+            }}
+          >
+            Try Again
+          </button>
         </div>
       ) : leaderboard.length === 0 ? (
         <div className="leaderboard-empty">
@@ -171,7 +194,7 @@ const Leaderboard = () => {
         <div className="leaderboard-list">
           {leaderboard.map((entry, idx) => (
             <div 
-              key={idx} 
+              key={`${entry.username}-${entry.topic}-${entry.created_at}`} 
               className="leaderboard-item"
               style={getCardStyle(idx)}
             >

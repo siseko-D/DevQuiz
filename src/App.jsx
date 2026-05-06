@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // ============ IMPORT ALL CSS FILES ============
 import "./styles/index.css";
 import "./styles/App.css";
 import "./styles/navbar.css";
+import "./styles/hamburger.css";
 import "./styles/footer.css";
 import "./styles/quiz.css";
 import "./styles/study.css";
@@ -23,21 +24,19 @@ import Leaderboard from "./components/Leaderboard";
 
 function App() {
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar />
-        <div className="content-wrapper">
-          <Routes>
-            <Route path="/" element={<QuizApp />} />
-            <Route path="/study" element={<Study />} />
-            <Route path="/study/:topic" element={<StudyTopic />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
-          </Routes>
-        </div>
-        <Footer />
+    <div className="app-container">
+      <Navbar />
+      <div className="content-wrapper">
+        <Routes>
+          <Route path="/" element={<QuizApp />} />
+          <Route path="/study" element={<Study />} />
+          <Route path="/study/:topic" element={<StudyTopic />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+        </Routes>
       </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
